@@ -8,6 +8,7 @@ const defaultProps = { success: false }
 
 
 /**
+ * Factory function to create a ShallowWraper for the Congrats component
  * @function setup
  * @param {object} props 
  * @returns { ShallowWrapper }
@@ -19,8 +20,6 @@ const setup = ( props = {} ) => {
 
 }
 
-
-
 test( 'renders wihout erros', () => {
 
     const wrapper = setup({ success: false })
@@ -30,8 +29,6 @@ test( 'renders wihout erros', () => {
     
 } )
 
-
-
 test( 'renders no text when `success` prop is false', () => {
 
     const wrapper = setup({ success: false })
@@ -39,8 +36,6 @@ test( 'renders no text when `success` prop is false', () => {
     expect( message).toBe('')
 
 })
-
-
 
 test( 'renders non-empty congrats message when `success` prop is true', () => {
     
