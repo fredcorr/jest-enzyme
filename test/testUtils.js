@@ -1,4 +1,6 @@
 import checkPropType from 'check-prop-types';
+import { createStore } from 'redux';
+import reducer from '../src/reducers'
 
 
 /**
@@ -29,5 +31,14 @@ export const checkProps = ( components, conformingProps ) => {
     )
 
     expect( propError ).toBeUndefined()  
+}
+
+/**
+ * @function storeFactory
+ * @param {object} initialState 
+ * @returns {Store} - new store for test
+ */
+export const storeFactory = (initialState) => {
+    return createStore(reducer, initialState)
 }
 
