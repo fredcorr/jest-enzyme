@@ -9,14 +9,27 @@ const GuessedWords = (props) => {
                 <p data-test="guessed-words-instructions">Try to guess the secret word!</p>
               : 
                 <div data-test="guessed-words-table">
-                    {
-                        props.guessedWords.map( 
-                            word => <div data-test='guessed-word' key="word.guessedWord">
-                                <span>{ word.guessedWord }</span>
-                                <span>{ word.letterMatchCount }</span>
-                            </div>
-                        )
-                    }
+                    <h3>Guessed Words</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Guess</th>
+                            </tr>
+                            <tr>
+                                <th>Matching letters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                props.guessedWords.map( 
+                                    word => <tr data-test='guessed-word' key="word.guessedWord">
+                                        <td>{ word.guessedWord }</td>
+                                        <td>{ word.letterMatchCount }</td>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
+                    </table>
                 </div>
             }
         </div>
