@@ -7,7 +7,17 @@ const GuessedWords = (props) => {
         <div data-test="component-guessed-words">
             { props.guessedWords.length === 0 ?
                 <p data-test="guessed-words-instructions">Try to guess the secret word!</p>
-              : null
+              : 
+                <div data-test="guessed-words-table">
+                    {
+                        props.guessedWords.map( 
+                            word => <div data-test='guessed-word' key="word.guessedWord">
+                                <span>{ word.guessedWord }</span>
+                                <span>{ word.letterMatchCount }</span>
+                            </div>
+                        )
+                    }
+                </div>
             }
         </div>
     )
