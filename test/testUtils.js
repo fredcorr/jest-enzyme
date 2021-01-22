@@ -1,6 +1,7 @@
 import checkPropType from 'check-prop-types';
-import { createStore } from 'redux';
-import reducer from '../src/reducers'
+import { createStore, applyMiddleware } from 'redux';
+import reducer from '../src/reducers';
+import { middlewares } from '../src/configureStore'
 
 
 /**
@@ -39,6 +40,6 @@ export const checkProps = ( components, conformingProps ) => {
  * @returns {Store} - new store for test
  */
 export const storeFactory = (initialState) => {
-    return createStore(reducer, initialState)
+    return applyMiddleware( ...middlewares )( createStore(reducer, initialState) )
 }
 
