@@ -4,6 +4,6 @@ import reducer from './reducers/'
 
 export const middlewares = [ReduxThunk]
 
-const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore(reducer))
+const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore)
 
-export default createStoreWithMiddleware
+export default createStoreWithMiddleware(reducer)

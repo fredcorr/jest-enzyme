@@ -40,6 +40,8 @@ export const checkProps = ( components, conformingProps ) => {
  * @returns {Store} - new store for test
  */
 export const storeFactory = (initialState) => {
-    return applyMiddleware( ...middlewares )( createStore(reducer, initialState) )
+
+    const createStoreWithMiddleware = applyMiddleware( ...middlewares )( createStore )
+    return createStoreWithMiddleware(reducer, initialState)
 }
 
