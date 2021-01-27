@@ -31,6 +31,7 @@ export const guessWord = ( guessedWord ) => {
 
 export const getSecretWord = () => {
   return (dispatch ) => {
+    // returns promise from axios.get. even if 'then' is appended this dispatch method will return a promise
     return axios.get( 'http://localhost:3030' ).then( response => {
       dispatch({
         type: actionTypes.SET_SECRET_WORD,

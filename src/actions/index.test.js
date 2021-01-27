@@ -17,6 +17,7 @@ describe( 'getSecretWord action creator', () => {
         const secretWord = 'party';
         const store = storeFactory();
 
+        // looks at the most recent request and mocks it
         moxios.wait( () => {
             const request = moxios.requests.mostRecent();
             request.respondWith({
@@ -25,6 +26,7 @@ describe( 'getSecretWord action creator', () => {
             });
         });
 
+        // this all dispatch waits for the promise by the action to be completed
         return store.dispatch( getSecretWord() ).then( () => {
 
             const newState = store.getState();
