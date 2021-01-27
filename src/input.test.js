@@ -13,7 +13,7 @@ import { guessWord } from './actions';
  */
 const setup = ( initialState={} ) => {
     const store = storeFactory( initialState )
-    return shallow(<Input store={ store }/>).dive()
+    return shallow(<Input store={ store }/>).dive().dive()
 }
 
 describe( 'render', () => {
@@ -23,7 +23,6 @@ describe( 'render', () => {
         let wrapper
         beforeEach( () => {
             wrapper = setup({success: false})
-            console.log( wrapper.debug() ); 
         })
 
         test('renders component with no errors', () => {
